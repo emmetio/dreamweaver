@@ -1,0 +1,33 @@
+<!DOCTYPE HTML SYSTEM "-//Adobe//DWExtension layout-engine 10.0//dialog">
+<html>
+<head>
+	<title>Emmet Preferences</title>
+	<script>
+	function restoreExtPath() {
+		document.getElementById('ext-path').value = dw.getPreferenceString('Emmet', 'Extensions Path', '');
+	}
+
+	function updateExtPath() {
+		var path = document.getElementById('ext-path').value;
+		dw.setPreferenceString('Emmet', 'Extensions Path', path);
+	}
+	</script>
+</head>
+<body onload="restoreExtPath()" style="width:300px">
+	<form>
+		<table border="0">
+			<!--DWLayoutTable-->
+			<tr>
+				<td valign="top">
+					<label for="ext-path">Extensions Path:</label>
+					<input type="text" name="ext-path" id="ext-path" onchange="updateExtPath()" />
+					<p>Enter absolute path to Emmet extensions folder and restart Dreamweaver in order changes to take effect.</p>
+				</td>
+			</tr>
+			<tr>
+				<td><input type="button" value="Close" onclick="updateExtPath();window.close()" /></td>
+			</tr>
+		</table>
+	</form>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<html>
+<head>
+	<script src="emmet/emmet-app.js"></script>
+	<script src="emmet/file.js"></script>
+	<script src="emmet/editor.js"></script>
+	<script>
+
+		// bootstraping
+		emmet.exec(function(require, _) {
+			if (window.emmetLoaded) {
+				return;
+			}
+
+			require('file').readText('./Emmet/snippets.json', function(err, content) {
+				if (!err) {
+					require('bootstrap').loadSystemSnippets(content);	
+				} else {
+					alert(err);
+				}
+
+				// load extensions
+				var extFolder = dw.getPreferenceString('Emmet', 'Extensions Path', '');
+				if (extFolder) {
+					extFolder = emmet.require('file').sanitizeAbsolutePath(extFolder.replace(/\\/g, '/'));
+					if (DWfile.exists(extFolder)) {
+						var extFiles = DWfile.listFolder(extFolder, 'files');
+						var fl = require('file');
+						require('bootstrap').loadExtensions(_.map(extFiles, function(f) {
+							return fl.resolvePath(extFolder, f);
+						}));
+					} else {
+						alert('Unable to load extensions from "' + extFolder + '":\nthis folder does not exists.');
+					}
+				}
+			});
+
+			window.emmetLoaded = true;
+		});
+
+		function receiveArguments(name) {
+			var editor = emmet.require('editorProxy');
+			editor.setupContext();
+			emmet.require('actions').run(name, editor);
+		}
+	</script>
+</head>
+<body>
+	
+</body>
+</html>
