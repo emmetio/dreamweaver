@@ -1,4 +1,4 @@
-{
+emmet.require('bootstrap').loadSystemSnippets({
 	"variables": {
 		"lang": "en",
 		"locale": "en-US",
@@ -849,4 +849,4 @@
 	"styl": {
 		"extends": "stylus"
 	}
-}
+});

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<macromedia-extension id="io.emmet.dreamweaver" name="Emmet" version="1.0.0">
+  <description><![CDATA[Emmet is a web-developer’s toolkit that can greatly improve your HTML & CSS workflow: write HTML code with CSS-like abbreviations, use different actions to quickly select and modify HTML and CSS code and more!]]></description>
+  <author name="Sergey Chikuyonok"/>
+  <products>
+    <product version="12.0" primary="true" name="Dreamweaver"/>
+  </products>
+  <files>
+    <file source="Emmet.mxi" destination="$userhomefolder/Desktop" products="Dreamweaver"/>
+    <file source="Commands" destination="$userhomefolder/Desktop" products="Dreamweaver"/>
+  </files>
+</macromedia-extension>

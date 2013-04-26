@@ -6,7 +6,7 @@
 	<author name="Sergey Chikuyonok" />
 
 	<products>
-		<product name="Dreamweaver" version="6" primary="true" />
+		<product name="Dreamweaver" version="11.0" primary="true" />
 	</products>
 
 	<update url="http://download.emmet.io/dreamweaver/update.xml"/>
@@ -36,6 +36,7 @@
 		<file source="Commands/Emmet/emmet-app.js" destination="$Dreamweaver/configuration/Commands/Emmet" />
 		<file source="Commands/Emmet/file.js" destination="$Dreamweaver/configuration/Commands/Emmet" />
 		<file source="Commands/Emmet/editor.js" destination="$Dreamweaver/configuration/Commands/Emmet" />
+		<file source="Commands/Emmet/snippets.js" destination="$Dreamweaver/configuration/Commands/Emmet" />
 	</files>
 
 	<configuration-changes>
