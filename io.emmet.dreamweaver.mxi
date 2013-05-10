@@ -1,12 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
 <macromedia-extension id="io.emmet.dreamweaver" name="Emmet" version="1.0.0">
-  <description><![CDATA[Emmet is a web-developer’s toolkit that can greatly improve your HTML & CSS workflow: write HTML code with CSS-like abbreviations, use different actions to quickly select and modify HTML and CSS code and more!]]></description>
-  <author name="Sergey Chikuyonok"/>
-  <products>
-    <product version="12.0" primary="true" name="Dreamweaver"/>
-  </products>
-  <files>
-    <file source="Emmet.mxi" destination="$userhomefolder/Desktop" products="Dreamweaver"/>
-    <file source="Commands" destination="$userhomefolder/Desktop" products="Dreamweaver"/>
-  </files>
+	<description><![CDATA[Emmet is a web-developer’s toolkit that can greatly improve your HTML & CSS workflow: write HTML code with CSS-like abbreviations, use different actions to quickly select and modify HTML and CSS code and more!]]></description>
+	<author name="Sergey Chikuyonok"/>
+	<products>
+		<product version="11.0" primary="true" name="Dreamweaver"/>
+	</products>
+	<ui-access>
+	<![CDATA[
+	See <b>Commands > Emmet</b> for available actions and <a href="http://emmet.io">http://emmet.io</a> for more info
+	]]>
+	</ui-access>
+
+	<license-agreement>
+	<![CDATA[
+	Licensed under the MIT license: http://www.opensource.org/licenses/mit-license.php
+	]]>
+	</license-agreement>
+	<files>
+		<file source="Commands/Emmet.html" destination="$Dreamweaver/configuration/Commands" />
+		<file source="Commands/Emmet Preferences.html" destination="$Dreamweaver/configuration/Commands" />
+		<file source="Commands/Emmet/emmet-app.js" destination="$Dreamweaver/configuration/Commands/Emmet" />
+		<file source="Commands/Emmet/file.js" destination="$Dreamweaver/configuration/Commands/Emmet" />
+		<file source="Commands/Emmet/editor.js" destination="$Dreamweaver/configuration/Commands/Emmet" />
+		<file source="Commands/Emmet/snippets.js" destination="$Dreamweaver/configuration/Commands/Emmet" />
+		<file source="Commands/Emmet/runner.html" destination="$Dreamweaver/configuration/Commands/Emmet" />
+	</files>
+	<configuration-changes>
+		<menu-insert prependTo="DWMenu_Commands">
+			<menu id="DWMenu_Emmet" name="_Emmet"/>
+		</menu-insert>
+		<menu-insert prependTo="DWMenu_Emmet">
+			<menu id="DWMenu_Emmet_HTML" name="HTML"/>
+			<menu id="DWMenu_Emmet_CSS" name="CSS"/>
+			<menu id="DWMenu_Emmet_Numbers" name="Numbers"/>
+		</menu-insert>
+		<menu-insert insertAfter="DWMenu_Emmet">
+			<separator id="DWMenu_Emmet_separator" />
+		</menu-insert>
+
+		<menu-insert appendTo="DWMenu_Emmet">
+			<menuitem id="DWMenu_Commands_Emmet_expandAbbreviation" name="_Expand Abbreviation" key="Cmd+E" command="dw.runCommand('Emmet.html', 'expand_abbreviation')" />
+			<menuitem id="DWMenu_Commands_Emmet_wrapWithAbbreviation" name="Wrap with Abbreviation" command="dw.runCommand('Emmet.html', 'wrap_with_abbreviation')" />
+			<menuitem id="DWMenu_Commands_Emmet_toggleComment" name="Toggle Comment" command="dw.runCommand('Emmet.html', 'toggle_comment')" />
+			<menuitem id="DWMenu_Commands_Emmet_prevEditPoint" name="Previous Edit Point" command="dw.runCommand('Emmet.html', 'prev_edit_point')" />
+			<menuitem id="DWMenu_Commands_Emmet_nextEditPoint" name="Next Edit Point" command="dw.runCommand('Emmet.html', 'next_edit_point')" />
+			<menuitem id="DWMenu_Commands_Emmet_selectNextItem" name="Select Next Item" command="dw.runCommand('Emmet.html', 'select_next_item')" />
+			<menuitem id="DWMenu_Commands_Emmet_selectPreviousItem" name="Select Previous Item" command="dw.runCommand('Emmet.html', 'select_previous_item')" />
+			<menuitem id="DWMenu_Commands_Emmet_mergeLines" name="Merge Lines" command="dw.runCommand('Emmet.html', 'merge_lines')" />
+			
+			<separator id="DWMenu_Emmet_separator2" />
+
+			<menuitem id="DWMenu_Commands_Emmet_preferences" name="Emmet Preferences" command="dw.runCommand('Emmet Preferences.html', '')" />
+		</menu-insert>
+
+		<menu-insert appendTo="DWMenu_Emmet_HTML">
+			<menuitem id="DWMenu_Commands_Emmet_matchPairOutward" name="Match Pair Tag (outward)" command="dw.runCommand('Emmet.html', 'match_pair_outward')" />
+			<menuitem id="DWMenu_Commands_Emmet_matchPairInward" name="Match Pair Tag (inward)" command="dw.runCommand('Emmet.html', 'match_pair_inward')" />
+			<menuitem id="DWMenu_Commands_Emmet_matchingPair" name="Go To Matching Pair" command="dw.runCommand('Emmet.html', 'matching_pair')" />
+			<menuitem id="DWMenu_Commands_Emmet_removeTag" name="Remove Tag" command="dw.runCommand('Emmet.html', 'remove_tag')" />
+			<menuitem id="DWMenu_Commands_Emmet_splitJoinTag" name="Split/Join Tag Declaration" command="dw.runCommand('Emmet.html', 'split_join_tag')" />
+		</menu-insert>
+
+		<menu-insert appendTo="DWMenu_Emmet_CSS">
+			<menuitem id="DWMenu_Commands_Emmet_reflectCSSValue" name="Reflect CSS Value" command="dw.runCommand('Emmet.html', 'reflect_css_value')" />
+		</menu-insert>
+
+		<menu-insert appendTo="DWMenu_Emmet_Numbers">
+			<menuitem id="DWMenu_Commands_Emmet_incrementNumberBy1" name="Increment Number by 1" command="dw.runCommand('Emmet.html', 'increment_number_by_1')" />
+			<menuitem id="DWMenu_Commands_Emmet_decrementNumberBy1" name="Decrement Number by 1" command="dw.runCommand('Emmet.html', 'decrement_number_by_1')" />
+
+			<menuitem id="DWMenu_Commands_Emmet_incrementNumberBy01" name="Increment Number by 0.1" command="dw.runCommand('Emmet.html', 'increment_number_by_01')" />
+			<menuitem id="DWMenu_Commands_Emmet_decrementNumberBy01" name="Decrement Number by 0.1" command="dw.runCommand('Emmet.html', 'decrement_number_by_01')" />
+
+			<menuitem id="DWMenu_Commands_Emmet_incrementNumberBy10" name="Increment Number by 10" command="dw.runCommand('Emmet.html', 'increment_number_by_10')" />
+			<menuitem id="DWMenu_Commands_Emmet_decrementNumberBy10" name="Decrement Number by 10" command="dw.runCommand('Emmet.html', 'decrement_number_by_10')" />
+
+			<menuitem id="DWMenu_Commands_Emmet_evaluateMathExpression" name="Evaluate Math Expression" command="dw.runCommand('Emmet.html', 'evaluate_math_expression')" />
+		</menu-insert>
+
+	</configuration-changes>
 </macromedia-extension>
