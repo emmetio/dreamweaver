@@ -6,11 +6,9 @@
 
 ## Installation
 
-*This plugin will be available soon via Adobe Exchange*
-
-### Manual Installation
-
 Download [Emmet.zxp](http://download.emmet.io/dreamweaver/Emmet.zxp) and double-click on it: the *Adobe Extension Manager* should start automatically and install extension. If you don’t have Extension Manager, you can download it from [here](http://www.adobe.com/exchange/em_download/).
+
+When installed, check out `Commands > Emmet` menu for available actions.
 
 ## Changing keyboard shortcuts
 
