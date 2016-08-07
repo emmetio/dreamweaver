@@ -1,7 +1,5 @@
 # Emmet for Dreamweaver
 
-[![Get Support](http://codersclan.net/graphics/getSupport_github4.png)](http://codersclan.net/support/step1.php?repo_id=4)
-
 [Emmet](http://emmet.io) is a web-developer’s toolkit that can greatly improve your HTML & CSS workflow: write HTML code with CSS-like abbreviations, use different actions to quickly select and modify HTML and CSS code and more!
 
 ## Installation
